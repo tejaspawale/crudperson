@@ -20,9 +20,22 @@ const PersonList = ({ peopleList, onPersonEdit, onPersonDelete }) => {
                             <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
                                 Last Name
                             </th>
+                            
+                             <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                                Email Address
+                            </th>
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                                Age
+                            </th>
+                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                                Balance
+                            </th>
+
+        
                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
                                 Actions
                             </th>
+                           
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
@@ -34,6 +47,16 @@ const PersonList = ({ peopleList, onPersonEdit, onPersonDelete }) => {
                             </td>
                             <td className="px-6 py-4 text-sm font-medium text-gray-900">
                                 {person.lastName}
+                            </td>
+                            <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                {person.email}
+                            </td>
+                            <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                {person.age}
+                            </td>
+                            <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                                {Number(person.balance || 0).toFixed(2)}
+
                             </td>
 
                             <td className="px-6 py-4 text-center">

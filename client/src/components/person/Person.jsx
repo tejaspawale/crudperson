@@ -36,7 +36,10 @@ function Person() {
     const defaultFormValues = {
         id: 0,
         firstName: '',
-        lastName: ''
+        lastName: '',
+        email: '',
+        age: 0,        // number
+        balance: 0  
     }
 
     const methods = useForm({
@@ -47,6 +50,8 @@ function Person() {
 
     const handleFormReset = () => {
         methods.reset(defaultFormValues);
+        setEditData(null);                 // 🔥 MOST IMPORTANT
+    methods.reset(defaultFormValues);
     }
 
 

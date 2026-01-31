@@ -61,6 +61,80 @@ const PersonForm = ({ methods, onFormReset, onFormSubmit }) => {
                     </div>
                 </div>
 
+                <div className="flex-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address*
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: "Enter a valid email address",
+                        },
+                        })}
+                        className="w-full px-4 py-3 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2"
+                        placeholder="Enter email address"
+                    />
+
+                    {errors.email && (
+                        <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                    )}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4">
+
+                        <div className="flex-1">
+                        <label htmlFor="age" className="block text-sm font-medium text-gray-700 mb-2">
+                            Age*
+                        </label>
+                        <input
+                        id="age"
+                        type="number"
+                        {...register("age", {
+                            required: "Age is required",
+                            min: { value: 1, message: "Age must be greater than 0" },
+                            max: { value: 120, message: "Enter valid age" },
+                            valueAsNumber: true
+                        })}
+                        className="w-full px-4 py-3 rounded-lg border"
+                        placeholder="Enter age"
+                        />
+
+                        {errors.age?.type === 'required' && <p className="mt-1 text-sm text-red-600 flex items-center">
+                            Age is  required
+                        </p>}
+
+                        {errors.firstName?.type === 'maxLength' && <p className="mt-1 text-sm text-red-600 flex items-center">
+                            FirstName can not exceed 30 characters
+                        </p>}
+
+                        </div>
+                                        {/* Balance */}
+                    <div className="flex-1">
+                        <label htmlFor="balance" className="block text-sm font-medium text-gray-700 mb-2">
+                        Saving Balance*
+                        </label>
+                        <input
+                        id="balance"
+                        type="number"
+                        step="0.01"
+                        {...register("balance", {
+                            required: "Balance is required",
+                            min: { value: 0, message: "Balance cannot be negative" },
+                            valueAsNumber: true
+                        })}
+                        className="w-full px-4 py-3 rounded-lg border"
+                        placeholder="Enter balance"
+                        />
+                        {errors.balance && <p className="text-red-600 text-sm">{errors.balance.message}</p>}
+                        </div>
+                    </div>
+
+
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <button

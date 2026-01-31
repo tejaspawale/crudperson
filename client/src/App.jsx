@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import Person from './components/person/Person'
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
 
 const App = () => {
